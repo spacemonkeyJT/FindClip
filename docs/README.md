@@ -4,13 +4,15 @@
 
 This is a custom script for [Firebot](https://firebot.app/) which can be used to create a `!findclip` command which will find a clip by searching on the title.
 
-E.g.
+E.g. entering the command:
 
 `!findclip hi there`
 
 might find a clip titled "OH, hi there, weirdo!"
 
 If a clip is found, then the link is posted in chat.
+
+The command will only search clips for the broadcaster's channel.
 
 ## Download
 
