@@ -14,7 +14,7 @@ If a clip is found, then the link is posted in chat.
 
 ## Download
 
-[findclip.js](https://github.com/spacemonkeyJT/FindClip/releases/download/1.0/findclip.js)
+[findclip.js](https://github.com/spacemonkeyJT/FindClip/releases/latest/download/findclip.js)
 
 ## How to install
 
@@ -30,7 +30,7 @@ Edit the effect, and click **scripts folder** to open the scripts folder.
 
 ![Scripts Folder](./scripts-folder.png)
 
-Download the [findclip.js](https://github.com/spacemonkeyJT/FindClip/releases/download/1.0/findclip.js) file and save it into the scripts folder.
+Download the [findclip.js](https://github.com/spacemonkeyJT/FindClip/releases/latest/download/findclip.js) file and save it into the scripts folder.
 
 Click the refresh button and choose the **findclip.js** file.
 
