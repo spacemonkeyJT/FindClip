@@ -1,8 +1,8 @@
 {
-  "name": "firebot-custom-script-starter",
-  "scriptOutputName": "starterScript",
+  "name": "firebot-findclip",
+  "scriptOutputName": "findclip",
   "version": "1.0.0",
-  "description": "A starter Firebot custom script",
+  "description": "A Firebot custom script to find a clip by title",
   "main": "",
   "scripts": {
     "build": "webpack",
@@ -10,8 +10,8 @@
     "copy": "node ./scripts/copy-build.js",
     "test": "jest"
   },
-  "author": "ebiggz",
-  "license": "GNU3",
+  "author": "spacemonkeyJT",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@crowbartools/firebot-custom-scripts-types": "^5.53.2",
     "@types/node": "^14.14.6",
