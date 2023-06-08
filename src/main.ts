@@ -1,32 +1,47 @@
 import { Firebot } from "@crowbartools/firebot-custom-scripts-types";
 
-interface Params {
-  message: string;
-}
-
-const script: Firebot.CustomScript<Params> = {
+const script: Firebot.CustomScript<{}> = {
   getScriptManifest: () => {
     return {
-      name: "Starter Custom Script",
-      description: "A starter custom script for build",
-      author: "SomeDev",
+      name: "FindClip Script",
+      description: "Finds a clip by title",
+      author: "spacemonkeyJT",
       version: "1.0",
       firebotVersion: "5",
     };
   },
-  getDefaultParameters: () => {
-    return {
-      message: {
-        type: "string",
-        default: "Hello World!",
-        description: "Message",
-        secondaryDescription: "Enter a message here",
-      },
-    };
-  },
-  run: (runRequest) => {
-    const { logger } = runRequest.modules;
-    logger.info(runRequest.parameters.message);
+  getDefaultParameters: () => ({}),
+  run: async (runRequest) => {
+    const searchText = runRequest.trigger.metadata.userCommand?.args.join(' ');
+
+    if (searchText) {
+      const { twitchChat } = runRequest.modules;
+
+      const searchExpr = new RegExp(`\\b${searchText}\\b`, 'i');
+      const apiClient = runRequest.modules.twitchApi.getClient();
+
+      const clip = await (async () => {
+        let after: string | undefined;
+
+        const broadcasterId = runRequest.firebot.accounts.streamer.userId;
+        const result = await apiClient.clips.getClipsForBroadcaster(broadcasterId, { limit: 100, after });
+
+        for (const clip of result.data) {
+          if (searchExpr.exec(clip.title)) {
+            return clip;
+          }
+        }
+
+        after = result.cursor;
+      })();
+
+      if (clip) {
+        twitchChat.sendChatMessage(clip.url);
+      } else {
+        const triggerUserName = runRequest.trigger.metadata.username;
+        twitchChat.sendChatMessage(`No matching clip found. @${triggerUserName}`);
+      }
+    }
   },
 };
 
