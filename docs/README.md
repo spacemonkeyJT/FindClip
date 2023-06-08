@@ -12,6 +12,10 @@ might find a clip titled "OH, hi there, weirdo!"
 
 If a clip is found, then the link is posted in chat.
 
+## Download
+
+[findclip.js](https://github.com/spacemonkeyJT/FindClip/releases/download/1.0/findclip.js)
+
 ## How to install
 
 In Firebot, click **SETTINGS** on the side bar, then **Scripts**, and enable **Custom Scripts** if it's not already enabled.
