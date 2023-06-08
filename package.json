@@ -1,7 +1,7 @@
 {
   "name": "firebot-findclip",
   "scriptOutputName": "findclip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Firebot custom script to find a clip by title",
   "main": "",
   "scripts": {

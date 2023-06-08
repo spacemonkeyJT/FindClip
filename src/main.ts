@@ -24,15 +24,22 @@ const script: Firebot.CustomScript<{}> = {
         let after: string | undefined;
 
         const broadcasterId = runRequest.firebot.accounts.streamer.userId;
-        const result = await apiClient.clips.getClipsForBroadcaster(broadcasterId, { limit: 100, after });
 
-        for (const clip of result.data) {
-          if (searchExpr.exec(clip.title)) {
-            return clip;
+        while (true) {
+          const result = await apiClient.clips.getClipsForBroadcaster(broadcasterId, { limit: 100, after });
+
+          for (const clip of result.data) {
+            if (searchExpr.exec(clip.title)) {
+              return clip;
+            }
           }
-        }
 
-        after = result.cursor;
+          if (!result.cursor) {
+            break;
+          }
+
+          after = result.cursor;
+        }
       })();
 
       if (clip) {
