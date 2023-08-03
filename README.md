@@ -38,4 +38,8 @@ Click the refresh button and choose the **findclip.js** file.
 
 ![Pick Script](./images/pick-script.png)
 
+Edit the message parameters, or accept the defaults.
+
+![Add Effect](./images/add-effect.png)
+
 Click **Add** and save the command. Edit any other settings as needed, then it should be good to go.
